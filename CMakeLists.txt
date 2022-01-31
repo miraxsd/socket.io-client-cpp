@@ -31,7 +31,7 @@ add_definitions(
     -D_WEBSOCKETPP_CPP11_FUNCTIONAL_
 )
 
-add_library(sioclient ${ALL_SRC})
+add_library(sioclient SHARED ${ALL_SRC})
 target_include_directories(sioclient PRIVATE 
     ${CMAKE_CURRENT_LIST_DIR}/src 
     ${CMAKE_CURRENT_LIST_DIR}/lib/websocketpp 
