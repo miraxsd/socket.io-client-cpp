@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.4 FATAL_ERROR)
 PROJECT(sioclient)
 
-option(BUILD_SHARED_LIBS "Build the shared library" OFF)
+option(BUILD_SHARED_LIBS "Build the shared library" ON)
 option(BUILD_UNIT_TESTS  "Builds unit tests target" OFF)
 
 set(MAJOR 1)
@@ -56,7 +56,7 @@ list(APPEND TARGET_LIBRARIES sioclient)
 
 find_package(OpenSSL)
 if(OPENSSL_FOUND)
-add_library(sioclient_tls ${ALL_SRC})
+add_library(sioclient_tls SHARED ${ALL_SRC})
 target_include_directories(sioclient_tls PRIVATE
     ${CMAKE_CURRENT_LIST_DIR}/src 
     ${CMAKE_CURRENT_LIST_DIR}/lib/websocketpp 
